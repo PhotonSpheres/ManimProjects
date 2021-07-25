@@ -48,8 +48,6 @@ graph_points = np.stack((time_arr, distance, aux_0),axis=1)
 
 class TwoObjectsFalling(Scene):
     def construct(self):
-        ball_1 = OpenGLCircle(radius=0.1).move_to(np.array([0.001, 0.5, 0]))
-        ball_2 = Circle(radius=0.1)
 
         boundary = OpenGLCircle(radius=1).set_color(WHITE)
 
@@ -71,14 +69,14 @@ class TwoObjectsFalling(Scene):
         group.to_edge(UP)
 
         line = OpenGLLine(ORIGIN, 2*UP).to_edge(DOWN).shift(LEFT*6).set_color(GREEN)
-        label_0 = Text("2").scale(0.7).next_to(line.get_end(), LEFT).set_color(GREEN)
-        label_1 = Text("0").scale(0.7).next_to(line.get_start(), LEFT).set_color(GREEN)
-        text_0 = Text("Distance").scale(0.7).next_to(line, RIGHT).set_color(GREEN)
-        text_1 = Text("Radius = 1").scale(0.7).to_edge(LEFT)
+        label_0 = OpenGLText("2").scale(0.7).next_to(line.get_end(), LEFT).set_color(GREEN)
+        label_1 = OpenGLText("0").scale(0.7).next_to(line.get_start(), LEFT).set_color(GREEN)
+        text_0 = OpenGLText("Distance").scale(0.7).next_to(line, RIGHT).set_color(GREEN)
+        text_1 = OpenGLText("Radius = 1").scale(0.7).to_edge(LEFT)
 
         twit_blue = "#1DA1F2"
-        name = Text("@Photon_Sphere").scale(0.54).to_edge(UR, buff=0.3)
-        twit = SVGMobject("/Users/O.Schoen/Desktop/Stuff/Manim/community/project/images/Logos/SVG/photon_sphere-01.svg",fill_opacity=0,stroke_width=2).set_color(twit_blue).scale(0.2).next_to(name, LEFT, buff=0.3)
+        name = OpenGLText("@Photon_Sphere").scale(0.54).to_edge(UR, buff=0.3)
+        twit = OpenGLSVGMobject("/Users/O.Schoen/Desktop/Stuff/Manim/community/project/images/Logos/SVG/photon_sphere-01.svg",fill_opacity=0,stroke_width=2).set_color(twit_blue).scale(0.2).next_to(name, LEFT, buff=0.3)
 
 
         self.play(
